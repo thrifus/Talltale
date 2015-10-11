@@ -1,0 +1,54 @@
+#!/bin/bash
+
+  ##############################
+ ###                          ###
+####         Talltale         ####
+####     By: Patrick Hart     ####
+ ###                          ###
+  ##############################
+
+BOLD=$(tput bold)
+NORM=$(tput sgr0)
+
+echo -e "${BOLD}TALLTALE${NORM}"
+echo -e "${BOLD}BY: PATRICK HART${NORM}"
+echo -e "${BOLD}THRIFUS@GMAIL.COM${NORM}"
+echo -e "${BOLD}HTTP://THRIFUS.CO/${NORM}"
+
+echo;echo
+
+read -p "${BOLD}Filename to write to (example: story-time.txt): ${NORM}" fileName
+touch ~/Desktop/$fileName
+
+echo;echo
+
+## Gotta create the story
+echo > ~/Desktop/$fileName
+echo "There once was a 3 fellow named 1. 1 lived in 2, which was known by all to be the most beautiful place in the land.
+1 loved to do many things, but there was one thing that he loved doing more than anything else in the world. That thing was, indeed, 4. 1 was the best of the best at 4 in the world. He could do it in his sleep, with one hand tied behind his back, etc. But one day, all of this would change." >> ~/Desktop/$fileName
+echo >> ~/Desktop/$fileName
+echo "On the night of the Blood Moon, 1 had learned that his crush, 5, was in grave danger. 5 had been taken hostage by his archenemy, 6. 6 was a crazy fellow who liked to take innocent people hostage and use them in whatever experiment he was performing in his evil lab. 6 would give three options to folks who were wanting back the hostages he took. The first option was to pay a hefty fee, the second was the option of rescue within twenty-four hours, and the third was just doing nothing. Very slim chances of completing the first or second option, sadly, and the third was usually the way most folks went." >> ~/Desktop/$fileName
+echo >> ~/Desktop/$fileName
+echo "1 knew he had to do something. 1 couldn't just let 5 be used in whatever grizzly experiment 6 had planned. Later that night, 1 gethered up his 7, the usual weapon of choice for fierce warriors such as himself. 1 set out to rescue 5, and would stop at nothing, even if it killed him." >> ~/Desktop/$fileName
+echo >> ~/Desktop/$fileName
+echo "When 1 got to 6's frightening abode, he snuck in through the backdoor and slew 6. 1 and 5 lived happily ever after." >> ~/Desktop/$fileName
+echo;echo  >> ~/Desktop/$fileName
+echo "The End" >> ~/Desktop/$fileName
+
+read -p "${BOLD}What is your name? (example: Shrek)   ${NORM}" name
+read -p "${BOLD}Where are you from? (example: The Swamp)    ${NORM}" residence
+read -p "${BOLD}How would you describe yourself? (example: devilishly handsome)    ${NORM}" persona
+read -p "${BOLD}What is your favorite thing to do? (example: onion eating)    ${NORM}" hobby
+read -p "${BOLD}Who is your crush? (example: Fiona)    ${NORM}" crush
+read -p "${BOLD}Who is your greatest foe? (example: Lord Farquaad)    ${NORM}" foe
+read -p "${BOLD}What is your weapon of choice? (example: onion cannon)    ${NORM}" weapon
+
+sed -i "" "s/1/$name/g" ~/Desktop/$fileName
+sed -i "" "s/2/$residence/g" ~/Desktop/$fileName
+sed -i "" "s/3/$persona/g" ~/Desktop/$fileName
+sed -i "" "s/4/$hobby/g" ~/Desktop/$fileName
+sed -i "" "s/5/$crush/g" ~/Desktop/$fileName
+sed -i "" "s/6/$foe/g" ~/Desktop/$fileName
+sed -i "" "s/7/$weapon/g" ~/Desktop/$fileName
+say --progress -v Tom -f ~/Desktop/$fileName -o ~/Desktop/story-time.m4a --quality=127
+open ~/Desktop/story-time.m4a
